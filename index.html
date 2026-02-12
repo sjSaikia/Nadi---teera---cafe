@@ -1,0 +1,783 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b1220" />
+  <title>Nadi Teera Café — Riverside Escape in Guwahati</title>
+  <meta name="description" content="Nadi Teera Café — riverside vibes, coffee, and comfort food near Uzan Bazaar, Guwahati." />
+  <!-- Optional: premium font (safe to remove if you want fully offline) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg0:#070b14;
+      --bg1:#0b1220;
+      --card:#0e1830cc;
+      --card2:#0e1830f2;
+      --text:#e9f1ff;
+      --muted:#a7b6d6;
+      --line:#22325a;
+      --accent:#66f2c2;
+      --accent2:#7aa8ff;
+      --warn:#ffd27a;
+      --shadow: 0 20px 60px rgba(0,0,0,.55);
+      --shadow2: 0 10px 30px rgba(0,0,0,.45);
+      --r: 22px;
+      --r2: 16px;
+      --max: 1160px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Manrope, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 600px at 15% 5%, rgba(102,242,194,.14), transparent 55%),
+        radial-gradient(900px 600px at 85% 15%, rgba(122,168,255,.12), transparent 60%),
+        radial-gradient(1200px 800px at 50% 110%, rgba(255,210,122,.08), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(180deg, rgba(7,11,20,.78), rgba(7,11,20,.35));
+      border-bottom:1px solid rgba(34,50,90,.45);
+    }
+    .topbar .inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:800; letter-spacing:.2px;
+    }
+    .logo{
+      width:38px;height:38px;border-radius:12px;
+      background:
+        radial-gradient(12px 12px at 25% 30%, rgba(255,255,255,.8), transparent 60%),
+        radial-gradient(18px 18px at 70% 30%, rgba(255,255,255,.25), transparent 62%),
+        linear-gradient(135deg, rgba(102,242,194,.95), rgba(122,168,255,.9));
+      box-shadow: 0 14px 35px rgba(102,242,194,.18);
+      transform: translateZ(0);
+    }
+    .nav{
+      display:flex; gap:8px; align-items:center; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .pill{
+      padding:10px 12px;
+      border:1px solid rgba(34,50,90,.55);
+      background: rgba(14,24,48,.35);
+      border-radius:999px;
+      font-size:13px;
+      color:var(--muted);
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+      will-change: transform;
+    }
+    .pill:hover{
+      transform: translateY(-2px);
+      border-color: rgba(122,168,255,.55);
+      background: rgba(14,24,48,.55);
+      color: var(--text);
+    }
+    .cta{
+      padding:10px 14px;
+      border:1px solid rgba(102,242,194,.55);
+      background: linear-gradient(135deg, rgba(102,242,194,.22), rgba(122,168,255,.16));
+      color: var(--text);
+    }
+    /* HERO */
+    .hero{
+      position:relative;
+      padding:44px 0 18px;
+      overflow:hidden;
+    }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width: 980px){
+      .heroGrid{grid-template-columns:1fr; }
+    }
+    .heroCard{
+      position:relative;
+      border-radius: calc(var(--r) + 8px);
+      border:1px solid rgba(34,50,90,.55);
+      background: rgba(14,24,48,.35);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      transform-style: preserve-3d;
+    }
+    .heroMedia{
+      min-height: 420px;
+      padding: 28px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      gap:14px;
+      background:
+        linear-gradient(180deg, rgba(7,11,20,.20), rgba(7,11,20,.88)),
+        var(--hero-img);
+      background-size: cover;
+      background-position: center;
+    }
+    .kicker{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:8px 12px;
+      width:fit-content;
+      border-radius:999px;
+      border:1px solid rgba(102,242,194,.45);
+      background: rgba(102,242,194,.10);
+      color: #c9fff0;
+      font-size: 13px;
+    }
+    .h1{
+      margin:0;
+      font-size: clamp(34px, 4.2vw, 54px);
+      line-height:1.03;
+      letter-spacing:-.6px;
+      text-shadow: 0 16px 30px rgba(0,0,0,.45);
+    }
+    .sub{
+      margin:0;
+      max-width: 62ch;
+      color: rgba(233,241,255,.86);
+      font-size: 15.5px;
+      line-height:1.55;
+    }
+    .heroBtns{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top: 4px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border:1px solid rgba(34,50,90,.55);
+      background: rgba(14,24,48,.45);
+      color: var(--text);
+      font-weight: 700;
+      font-size: 14px;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+      box-shadow: var(--shadow2);
+    }
+    .btn:hover{ transform: translateY(-2px); border-color: rgba(122,168,255,.55); background: rgba(14,24,48,.62);}
+    .btn.primary{
+      border-color: rgba(102,242,194,.55);
+      background: linear-gradient(135deg, rgba(102,242,194,.22), rgba(122,168,255,.12));
+    }
+    .btn svg{width:18px;height:18px; opacity:.92}
+    /* INFO PANEL */
+    .side{
+      display:flex; flex-direction:column; gap:14px;
+    }
+    .panel{
+      border-radius: var(--r);
+      border:1px solid rgba(34,50,90,.55);
+      background: rgba(14,24,48,.42);
+      box-shadow: var(--shadow2);
+      overflow:hidden;
+      transform-style: preserve-3d;
+    }
+    .panelHead{
+      padding:16px 16px 10px;
+      display:flex; justify-content:space-between; align-items:flex-start; gap:12px;
+    }
+    .panelTitle{
+      font-weight: 800;
+      letter-spacing:.2px;
+      margin:0;
+    }
+    .badge{
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,210,122,.55);
+      background: rgba(255,210,122,.10);
+      color: #ffe6b7;
+      font-size:12px;
+      white-space:nowrap;
+    }
+    .panelBody{ padding: 0 16px 16px; color: rgba(233,241,255,.86);}
+    .kv{
+      display:grid;
+      grid-template-columns: 120px 1fr;
+      gap:10px 12px;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    .kv b{ color: rgba(233,241,255,.92); font-weight:800}
+    .kv span{ color: var(--muted); }
+    /* SECTIONS */
+    section{ padding: 24px 0; }
+    .sectionTitle{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
+      margin: 6px 0 14px;
+    }
+    .sectionTitle h2{
+      margin:0;
+      font-size: 22px;
+      letter-spacing:-.2px;
+    }
+    .sectionTitle p{margin:0; color: var(--muted); font-size: 13.5px;}
+    .grid3{
+      display:grid; gap:14px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 980px){ .grid3{grid-template-columns: 1fr; } }
+    .card{
+      position:relative;
+      border-radius: var(--r);
+      border: 1px solid rgba(34,50,90,.55);
+      background: rgba(14,24,48,.35);
+      box-shadow: var(--shadow2);
+      overflow:hidden;
+      padding:16px;
+      transform-style: preserve-3d;
+    }
+    .card::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(380px 220px at var(--mx, 20%) var(--my, 20%), rgba(102,242,194,.18), transparent 55%);
+      opacity:.9;
+      pointer-events:none;
+      transform: translateZ(-1px);
+    }
+    .card h3{margin:0 0 6px; font-size:16px; letter-spacing:-.15px;}
+    .card p{margin:0; color: var(--muted); font-size: 13.5px; line-height:1.55;}
+    .iconRow{ display:flex; gap:10px; align-items:center; margin-top: 10px; color: rgba(233,241,255,.88); font-size: 13.5px;}
+    .dot{
+      width:10px;height:10px;border-radius:50%;
+      background: linear-gradient(135deg, rgba(102,242,194,.95), rgba(122,168,255,.95));
+      box-shadow: 0 10px 24px rgba(102,242,194,.16);
+    }
+    /* MENU */
+    .menuGrid{
+      display:grid; gap:14px;
+      grid-template-columns: 1fr 1fr;
+      align-items:stretch;
+    }
+    @media (max-width: 980px){ .menuGrid{grid-template-columns:1fr;} }
+    .menuList{
+      margin:0; padding:0; list-style:none;
+      display:grid; gap:10px;
+    }
+    .menuItem{
+      padding:12px 12px;
+      border-radius: 16px;
+      border:1px solid rgba(34,50,90,.55);
+      background: rgba(14,24,48,.35);
+      display:flex; justify-content:space-between; gap:10px;
+    }
+    .menuItem b{font-weight:800}
+    .price{color: rgba(233,241,255,.85)}
+    .hint{color: var(--muted); font-size: 12.5px; margin-top:4px}
+    /* GALLERY */
+    .gallery{
+      display:grid; gap:12px;
+      grid-template-columns: 1.2fr .8fr .8fr;
+      grid-auto-rows: 210px;
+    }
+    @media (max-width: 980px){
+      .gallery{grid-template-columns:1fr; grid-auto-rows: 220px;}
+    }
+    .shot{
+      position:relative;
+      border-radius: var(--r);
+      overflow:hidden;
+      border:1px solid rgba(34,50,90,.55);
+      box-shadow: var(--shadow2);
+      background: #0d1426;
+      transform-style: preserve-3d;
+    }
+    .shot img{
+      width:100%; height:100%;
+      object-fit:cover;
+      transform: scale(1.04);
+      filter: saturate(1.05) contrast(1.03);
+    }
+    .shot::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(7,11,20,.05), rgba(7,11,20,.62));
+      pointer-events:none;
+    }
+    .shot .cap{
+      position:absolute; left:14px; right:14px; bottom:12px;
+      display:flex; justify-content:space-between; gap:10px; align-items:flex-end;
+      z-index:2;
+    }
+    .cap b{font-weight:900; letter-spacing:-.2px}
+    .cap span{color: rgba(233,241,255,.78); font-size: 12.5px}
+    /* CONTACT */
+    .contactGrid{
+      display:grid; gap:14px;
+      grid-template-columns: .95fr 1.05fr;
+    }
+    @media (max-width: 980px){ .contactGrid{grid-template-columns:1fr;} }
+    .fieldRow{
+      display:grid; gap:10px;
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 560px){ .fieldRow{grid-template-columns:1fr;} }
+    input, textarea{
+      width:100%;
+      border-radius: 14px;
+      border:1px solid rgba(34,50,90,.55);
+      background: rgba(14,24,48,.35);
+      padding: 12px 12px;
+      color: var(--text);
+      outline:none;
+      font: inherit;
+    }
+    textarea{min-height: 120px; resize: vertical}
+    input:focus, textarea:focus{ border-color: rgba(122,168,255,.6); }
+    .small{ font-size: 12.5px; color: var(--muted); line-height:1.5; }
+    .footer{
+      padding: 18px 0 34px;
+      color: rgba(167,182,214,.78);
+      font-size: 12.5px;
+      border-top:1px solid rgba(34,50,90,.45);
+      margin-top: 18px;
+    }
+    /* 3D tilt helpers */
+    .tilt{
+      transform: perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(var(--ty,0px));
+      transition: transform .12s ease-out;
+      will-change: transform;
+    }
+    .shine{
+      position:absolute; inset:0;
+      background: radial-gradient(600px 260px at var(--mx, 50%) var(--my, 30%), rgba(255,255,255,.12), transparent 50%);
+      mix-blend-mode: screen;
+      opacity: .85;
+      pointer-events:none;
+    }
+    .sr{position:absolute;left:-9999px}
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap inner">
+      <a class="brand" href="#top">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div id="brandName">Nadi Teera Café</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:2px">Riverside café • Guwahati</div>
+        </div>
+      </a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="pill" href="#about">About</a>
+        <a class="pill" href="#menu">Menu</a>
+        <a class="pill" href="#gallery">Gallery</a>
+        <a class="pill" href="#contact">Contact</a>
+        <a class="pill cta" id="bookBtn" href="#contact">Book / Enquire</a>
+      </nav>
+    </div>
+  </div>
+  <main id="top" class="hero">
+    <div class="wrap">
+      <div class="heroGrid">
+        <!-- HERO -->
+        <div class="heroCard tilt" data-tilt>
+          <div class="heroMedia" id="heroMedia">
+            <div class="kicker">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 21s7-4.6 7-11a7 7 0 10-14 0c0 6.4 7 11 7 11z" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M9.2 10.7c1.2 1.2 4.4 1.2 5.6 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+              Riverside vibes • Brahmaputra side
+            </div>
+            <h1 class="h1" id="heroTitle">Coffee, comfort food & a calm river breeze.</h1>
+            <p class="sub" id="heroSubtitle">
+              A cozy café experience near Uzan Bazaar, Guwahati — perfect for slow mornings, friendly meetups, and sunset snacks.
+            </p>
+            <div class="heroBtns">
+              <a class="btn primary" id="callBtn" href="#">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M6.6 10.8c1.8 3.5 3.9 5.7 7.4 7.4l2.5-2.5c.4-.4 1-.5 1.5-.3 1 .4 2.1.7 3.2.8.6.1 1.1.6 1.1 1.2v3.2c0 .7-.6 1.2-1.2 1.2C10.5 23 1 13.5 1 2.2 1 1.5 1.5 1 2.2 1h3.2c.6 0 1.1.5 1.2 1.1.2 1.1.4 2.2.8 3.2.2.5.1 1.1-.3 1.5l-2.5 2.5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                </svg>
+                Call now
+              </a>
+              <a class="btn" id="mapBtn" href="#" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 21s7-4.6 7-11a7 7 0 10-14 0c0 6.4 7 11 7 11z" stroke="currentColor" stroke-width="1.8"/>
+                  <path d="M12 12.2a2.2 2.2 0 110-4.4 2.2 2.2 0 010 4.4z" stroke="currentColor" stroke-width="1.8"/>
+                </svg>
+                Open map
+              </a>
+              <a class="btn" href="#menu">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M4 7h16M4 12h16M4 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+                Explore menu
+              </a>
+            </div>
+            <div class="shine" aria-hidden="true"></div>
+          </div>
+        </div>
+        <!-- SIDE INFO -->
+        <div class="side">
+          <div class="panel tilt" data-tilt>
+            <div class="panelHead">
+              <div>
+                <p class="panelTitle" style="margin:0">Visit info</p>
+                <div class="hint" id="visitHint">Updated for quick enquiry pages</div>
+              </div>
+              <div class="badge" id="openBadge">Open • Hours vary</div>
+            </div>
+            <div class="panelBody">
+              <div class="kv" role="list">
+                <b role="listitem">Address</b>
+                <span id="addr">MG Road, Uzan Bazaar, Guwahati</span>
+                <b role="listitem">Phone</b>
+                <span><a id="phoneLink" href="#">+91 60002 77532</a></span>
+                <b role="listitem">Dining</b>
+                <span id="cuisine">Assamese • North Indian • Chinese • Continental</span>
+                <b role="listitem">For two</b>
+                <span id="cost">₹1,800 (approx.)</span>
+              </div>
+              <div class="iconRow" style="margin-top:14px">
+                <div class="dot" aria-hidden="true"></div>
+                <div>Indoor seating • All-day bites • Great photo spots</div>
+              </div>
+            </div>
+          </div>
+          <div class="panel tilt" data-tilt>
+            <div class="panelHead">
+              <div>
+                <p class="panelTitle" style="margin:0">Highlights</p>
+                <div class="hint">Perfect selling-points for a café landing page</div>
+              </div>
+              <div class="badge" style="border-color:rgba(122,168,255,.55); background:rgba(122,168,255,.10); color:#d9e6ff">Premium UI</div>
+            </div>
+            <div class="panelBody">
+              <ul style="margin:10px 0 0; padding-left:18px; color:rgba(233,241,255,.86); line-height:1.7">
+                <li>“Slightly 3D” tilt cards + glow effects</li>
+                <li>Fast single-file HTML (easy to sell & deploy)</li>
+                <li>Gallery + enquiry form + WhatsApp-ready buttons</li>
+                <li>All text editable from one CONFIG object</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <section id="about">
+    <div class="wrap">
+      <div class="sectionTitle">
+        <div>
+          <h2>About the café</h2>
+          <p>Short, punchy copy that converts visitors into walk-ins.</p>
+        </div>
+      </div>
+      <div class="grid3">
+        <div class="card tilt" data-tilt>
+          <h3>Riverside mood</h3>
+          <p>Designed for slow evenings — coffee, chatter, and a peaceful Guwahati riverfront feel.</p>
+          <div class="iconRow"><span class="dot" aria-hidden="true"></span><span>Relaxed ambience</span></div>
+          <div class="shine" aria-hidden="true"></div>
+        </div>
+        <div class="card tilt" data-tilt>
+          <h3>Wide food options</h3>
+          <p>From local comfort to global cravings — cafés like this shine with variety and shareable plates.</p>
+          <div class="iconRow"><span class="dot" aria-hidden="true"></span><span>Assamese • Continental • Asian</span></div>
+          <div class="shine" aria-hidden="true"></div>
+        </div>
+        <div class="card tilt" data-tilt>
+          <h3>Easy meet-up spot</h3>
+          <p>Great for dates, friend hangouts, or content shoots — with a clean layout and photo-ready corners.</p>
+          <div class="iconRow"><span class="dot" aria-hidden="true"></span><span>Groups welcome</span></div>
+          <div class="shine" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="menu">
+    <div class="wrap">
+      <div class="sectionTitle">
+        <div>
+          <h2>Signature picks</h2>
+          <p>Use placeholders now — replace with the real menu items/prices anytime.</p>
+        </div>
+        <a class="pill" href="#contact">Ask for today’s specials →</a>
+      </div>
+      <div class="menuGrid">
+        <div class="card tilt" data-tilt>
+          <h3 style="margin-bottom:10px">Bestsellers</h3>
+          <ul class="menuList" id="menuBest"></ul>
+          <div class="hint">Tip: Add 8–12 real items with photos for even higher conversions.</div>
+          <div class="shine" aria-hidden="true"></div>
+        </div>
+        <div class="card tilt" data-tilt>
+          <h3 style="margin-bottom:10px">Cafe classics</h3>
+          <ul class="menuList" id="menuCafe"></ul>
+          <div class="hint">Categories online often include noodles/rice, pizza, dim sum, bao, pasta & salads.</div>
+          <div class="shine" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="gallery">
+    <div class="wrap">
+      <div class="sectionTitle">
+        <div>
+          <h2>Gallery</h2>
+          <p>Replace these with your licensed photos (shooting your own = best for selling).</p>
+        </div>
+      </div>
+      <div class="gallery">
+        <div class="shot tilt" data-tilt style="grid-row: span 2;">
+          <img id="g0" alt="Café ambience photo" loading="lazy">
+          <div class="cap"><b>Ambience</b><span>Warm • calm • aesthetic</span></div>
+          <div class="shine" aria-hidden="true"></div>
+        </div>
+        <div class="shot tilt" data-tilt>
+          <img id="g1" alt="Food photo" loading="lazy">
+          <div class="cap"><b>Plates</b><span>Shareable bites</span></div>
+          <div class="shine" aria-hidden="true"></div>
+        </div>
+        <div class="shot tilt" data-tilt>
+          <img id="g2" alt="Coffee photo" loading="lazy">
+          <div class="cap"><b>Coffee</b><span>Hot • iced • fresh</span></div>
+          <div class="shine" aria-hidden="true"></div>
+        </div>
+        <div class="shot tilt" data-tilt style="grid-column: span 2;">
+          <img id="g3" alt="Outdoor seating photo" loading="lazy">
+          <div class="cap"><b>Outdoor seating</b><span>Best at sunset</span></div>
+          <div class="shine" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="contact">
+    <div class="wrap">
+      <div class="sectionTitle">
+        <div>
+          <h2>Contact & reservations</h2>
+          <p>Enquiry form that opens email/WhatsApp — perfect for quick lead capture.</p>
+        </div>
+      </div>
+      <div class="contactGrid">
+        <div class="card tilt" data-tilt>
+          <h3>Get in touch</h3>
+          <p style="margin-top:6px">For table bookings, birthday setups, or group seating — message us and we’ll confirm quickly.</p>
+          <div class="kv" style="margin-top:14px">
+            <b>Call</b><span><a id="call2" href="#">+91 60002 77532</a></span>
+            <b>Address</b><span id="addr2">MG Road, Uzan Bazaar, Guwahati</span>
+            <b>Hours</b><span id="hours2">Open hours vary</span>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:14px">
+            <a class="btn primary" id="waBtn" href="#" target="_blank" rel="noopener">WhatsApp</a>
+            <a class="btn" id="mailBtn" href="#">Email</a>
+          </div>
+          <p class="small" style="margin-top:12px">
+            Pro tip: Add Google Reviews link + Instagram link here for strong trust signals.
+          </p>
+          <div class="shine" aria-hidden="true"></div>
+        </div>
+        <div class="card tilt" data-tilt>
+          <h3>Quick enquiry</h3>
+          <form id="enquiryForm">
+            <div class="fieldRow">
+              <label class="sr" for="name">Name</label>
+              <input id="name" placeholder="Your name" required />
+              <label class="sr" for="phone">Phone</label>
+              <input id="phone" placeholder="Phone number" required />
+            </div>
+            <div style="height:10px"></div>
+            <label class="sr" for="msg">Message</label>
+            <textarea id="msg" placeholder="Message (date/time, guests, occasion)..." required></textarea>
+            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px">
+              <button class="btn primary" type="submit">Send enquiry</button>
+              <a class="btn" id="mapBtn2" href="#" target="_blank" rel="noopener">Directions</a>
+            </div>
+            <p class="small" style="margin-top:10px">
+              This form opens WhatsApp by default. You can switch to email inside the CONFIG.
+            </p>
+          </form>
+          <div class="shine" aria-hidden="true"></div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="wrap" style="padding:0">
+          <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between">
+            <div>© <span id="year"></span> <span id="brandName2">Nadi Teera Café</span>. All rights reserved.</div>
+            <div style="color:rgba(167,182,214,.7)">
+              Built as a premium single-page site • Replace photos with licensed originals before selling.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    // =========================
+    // EDIT EVERYTHING FROM HERE
+    // =========================
+    const CONFIG = {
+      BRAND: "Nadi Teera Café",
+      TAGLINE: "Riverside escape in Guwahati",
+      HERO_TITLE: "Coffee, comfort food & a calm river breeze.",
+      HERO_SUBTITLE: "A cozy café experience near Uzan Bazaar, Guwahati — perfect for slow mornings, friendly meetups, and sunset snacks.",
+      ADDRESS: "Maheswar Kutir, Latasil, MG Road, Uzan Bazaar, Guwahati",
+      PHONE_DISPLAY: "+91 60002 77532",
+      PHONE_TEL: "+916000277532",
+      HOURS_BADGE: "Open • 24 hours listed online",
+      HOURS_TEXT: "Open hours may vary (often listed as 24 hours online).",
+      COST_FOR_TWO: "₹1,800 (approx.)",
+      CUISINES: "Assamese • North Indian • Chinese • Continental • Café",
+      // Replace with YOUR OWN / LICENSED images before selling:
+      HERO_IMAGE: "https://b.zmtcdn.com/data/pictures/0/20607810/cccb9d6a2a68a25a1b7ae17cf9ad0d0d.jpg",
+      GALLERY: [
+        "https://b.zmtcdn.com/data/pictures/0/20607810/cccb9d6a2a68a25a1b7ae17cf9ad0d0d.jpg",
+        "https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=1400&q=75",
+        "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1400&q=75",
+        "https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=1400&q=75"
+      ],
+      // Lead handling:
+      WHATSAPP_NUMBER: "916000277532", // change if needed
+      EMAIL_TO: "hello@example.com",    // change if needed
+      FORM_SEND_VIA: "whatsapp",        // "whatsapp" or "email"
+      MAPS_QUERY: "Nadi Teera MG Road Uzan Bazaar Guwahati"
+    };
+    // Optional menu placeholders (edit freely)
+    const MENU_BESTSELLERS = [
+      { name: "Assamese comfort platter", price: "—", note: "Replace with your exact dish name & price" },
+      { name: "Crispy starter + dip", price: "—", note: "Perfect shareable plate" },
+      { name: "Pasta of the day", price: "—", note: "Creamy / spicy options" },
+      { name: "Dessert & coffee combo", price: "—", note: "Great for evenings" }
+    ];
+    const MENU_CAFE = [
+      { name: "Coffee (hot/iced)", price: "—", note: "Espresso • latte • cold coffee" },
+      { name: "Pizza slice / mini pizza", price: "—", note: "Quick bite" },
+      { name: "Rice & noodles bowl", price: "—", note: "Filling and flavorful" },
+      { name: "Salad / light meal", price: "—", note: "Fresh & clean" }
+    ];
+    // =========================
+    // RENDER
+    // =========================
+    const $ = (s) => document.querySelector(s);
+    $("#brandName").textContent = CONFIG.BRAND;
+    $("#brandName2").textContent = CONFIG.BRAND;
+    $("#heroTitle").textContent = CONFIG.HERO_TITLE;
+    $("#heroSubtitle").textContent = CONFIG.HERO_SUBTITLE;
+    $("#addr").textContent = CONFIG.ADDRESS;
+    $("#addr2").textContent = CONFIG.ADDRESS;
+    $("#cuisine").textContent = CONFIG.CUISINES;
+    $("#cost").textContent = CONFIG.COST_FOR_TWO;
+    $("#openBadge").textContent = CONFIG.HOURS_BADGE;
+    $("#hours2").textContent = CONFIG.HOURS_TEXT;
+    const telHref = `tel:${CONFIG.PHONE_TEL}`;
+    $("#phoneLink").href = telHref;
+    $("#phoneLink").textContent = CONFIG.PHONE_DISPLAY;
+    $("#callBtn").href = telHref;
+    $("#call2").href = telHref;
+    $("#call2").textContent = CONFIG.PHONE_DISPLAY;
+    // hero bg
+    const hero = $("#heroMedia");
+    hero.style.setProperty("--hero-img", `url('${CONFIG.HERO_IMAGE}')`);
+    // gallery
+    $("#g0").src = CONFIG.GALLERY[0];
+    $("#g1").src = CONFIG.GALLERY[1];
+    $("#g2").src = CONFIG.GALLERY[2];
+    $("#g3").src = CONFIG.GALLERY[3];
+    // maps
+    const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONFIG.MAPS_QUERY)}`;
+    $("#mapBtn").href = mapUrl;
+    $("#mapBtn2").href = mapUrl;
+    // WhatsApp + email
+    const waBase = `https://wa.me/${CONFIG.WHATSAPP_NUMBER}`;
+    $("#waBtn").href = waBase;
+    $("#mailBtn").href = `mailto:${CONFIG.EMAIL_TO}?subject=${encodeURIComponent("Enquiry - " + CONFIG.BRAND)}`;
+    // render menus
+    function renderMenu(list, el){
+      const target = document.querySelector(el);
+      target.innerHTML = list.map(item => `
+        <li class="menuItem">
+          <div>
+            <b>${escapeHtml(item.name)}</b>
+            <div class="hint">${escapeHtml(item.note || "")}</div>
+          </div>
+          <div class="price">${escapeHtml(item.price || "")}</div>
+        </li>
+      `).join("");
+    }
+    renderMenu(MENU_BESTSELLERS, "#menuBest");
+    renderMenu(MENU_CAFE, "#menuCafe");
+    $("#year").textContent = new Date().getFullYear();
+    // =========================
+    // FORM SEND
+    // =========================
+    $("#enquiryForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = $("#name").value.trim();
+      const phone = $("#phone").value.trim();
+      const msg = $("#msg").value.trim();
+      const full = `Enquiry for ${CONFIG.BRAND}%0A%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0A%0AMessage: ${encodeURIComponent(msg)}%0A%0AAddress: ${encodeURIComponent(CONFIG.ADDRESS)}`;
+      if (CONFIG.FORM_SEND_VIA === "email") {
+        const subject = encodeURIComponent(`Enquiry - ${CONFIG.BRAND}`);
+        const body = `Name: ${name}\nPhone: ${phone}\n\nMessage:\n${msg}\n\nAddress:\n${CONFIG.ADDRESS}\nMap:\n${mapUrl}\n`;
+        window.location.href = `mailto:${CONFIG.EMAIL_TO}?subject=${subject}&body=${encodeURIComponent(body)}`;
+      } else {
+        window.open(`${waBase}?text=${full}`, "_blank", "noopener");
+      }
+    });
+    // =========================
+    // 3D TILT (subtle, premium)
+    // =========================
+    const tilts = [...document.querySelectorAll("[data-tilt]")];
+    const isFinePointer = matchMedia("(pointer:fine)").matches;
+    function onMove(el, ev){
+      const r = el.getBoundingClientRect();
+      const x = (ev.clientX - r.left) / r.width;
+      const y = (ev.clientY - r.top) / r.height;
+      const ry = (x - 0.5) * 10;   // left/right
+      const rx = (0.5 - y) * 10;   // up/down
+      const ty = -2;
+      el.style.setProperty("--rx", rx.toFixed(2) + "deg");
+      el.style.setProperty("--ry", ry.toFixed(2) + "deg");
+      el.style.setProperty("--ty", ty + "px");
+      el.style.setProperty("--mx", (x*100).toFixed(2) + "%");
+      el.style.setProperty("--my", (y*100).toFixed(2) + "%");
+    }
+    function reset(el){
+      el.style.setProperty("--rx", "0deg");
+      el.style.setProperty("--ry", "0deg");
+      el.style.setProperty("--ty", "0px");
+      el.style.setProperty("--mx", "50%");
+      el.style.setProperty("--my", "30%");
+    }
+    if (isFinePointer){
+      tilts.forEach(el => {
+        el.classList.add("tilt");
+        el.addEventListener("mousemove", (ev) => onMove(el, ev));
+        el.addEventListener("mouseleave", () => reset(el));
+        reset(el);
+      });
+    } else {
+      // Touch devices: keep it clean and fast
+      tilts.forEach(el => el.classList.remove("tilt"));
+    }
+    // =========================
+    // Utils
+    // =========================
+    function escapeHtml(str){
+      return String(str)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+    }
+  </script>
+</body>
+</html>
